@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Exchange Program</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+body{
+    background:#f4f6f9;
+    color:#333;
+}
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+.logo{
+    font-size:26px;
+    font-weight:bold;
+    color:#2563eb;
+}
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+.nav-links a:hover{
+    color:#2563eb;
+}
+.login-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:6px;
+    cursor:pointer;
+}
+/* Hero Section */
+.hero{
+    text-align:center;
+    padding:100px 20px;
+}
+.hero h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+.hero p{
+    font-size:18px;
+    color:#666;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:30px;
+}
+.hero button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+/* How it Works */
+
+.how-it-works{
+    padding:80px 20px;
+    text-align:center;
+}
+.how-it-works h2{
+    margin-bottom:40px;
+    font-size:35px;
+}
+.steps{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+.step-card{
+    width:280px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+.step-card h3{
+    margin-bottom:15px;
+}
+/* Features */
+
+.features{
+    padding:80px 20px;
+    text-align:center;
+}
+.features h2{
+    margin-bottom:40px;
+    font-size:35px;
+}
+.feature-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+.feature-card{
+    width:280px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+/* Footer */
+footer{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}/*responsivness*/
+@media(max-width:768px){
+
+.navbar{
+    flex-direction:column;
+    gap:15px;
+}
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.hero h1{
+    font-size:35px;
+}
+}
+.card-link{
+    text-decoration:none;
+    color:inherit;
+}
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        Skill Exchange
+    </div>
+    <ul class="nav-links">
+        <li><a href="Home.html">Home page</a></li>
+        <li><a href="Browseskills.html">Browse Skills</a></li>
+        <li><a href="profileweb.html">Profile</a></li>
+        <li><a href="request.html">Requests</a></li>
+        <li><a href="Dashboard.html">Dashboard</a></li>
+    </ul>
+    <button class="login-btn" id="loginBtn">
+        Login
+    </button>
+</nav>
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Learn Skills Without Paying Money</h1>
+    <p>
+        A platform where users exchange skills instead of paying money.
+        Teach what you know and learn what you need.
+    </p>
+    <button>
+        Get Started
+    </button>
+</section>
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="steps">
+    <a href="create account.html" class="card-link">
+        <div class="step-card">
+            <h3>1. Create Account</h3>
+            <p>Register and create your profile.</p>
+        </div>
+    </a>
+<a href="Addskils.html" class="card-link">
+    <div class="step-card">
+        <h3>2. Add Skills</h3>
+        <p>Add skills you can teach and skills you want to learn.</p>
+    </div>
+</a>
+<a href="eXchngeskills.html" class="card-link">
+
+    <div class="step-card">
+        <h3>2. Exchange Skills</h3>
+        <p>Add skills you can teach and skills you want to learn.</p>
+    </div>
+</div>
+</section>
+<!-- Features -->
+<section class="features">
+    <h2>Core Features</h2>
+    <div class="feature-container">
+        <div class="feature-card">
+            <h3>User Profiles</h3>
+            <p>Create a profile and showcase your skills.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Skill Search</h3>
+            <p>Find people with the skills you need.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Skill Exchange</h3>
+            <p>Exchange knowledge without paying fees.</p>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer>
+    <p>© 2026 Skill Exchange Program. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+document.getElementById("loginBtn").addEventListener("click",function(){
+
+    alert("Login Page Coming Soon!");
+
+});
+
+</script>
+
+</body>
+</html>

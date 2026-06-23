@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Requests | Skill Exchange</title>
+<style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+body{
+  background:#f4f6f9;
+}
+/* NAVBAR */
+header{
+  background:#2563eb;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+}
+.logo{
+  font-size:20px;
+  font-weight:bold;
+}
+nav a{
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+}
+/* TITLE */
+.title{
+  text-align:center;
+  padding:40px 20px;
+  color:#2563eb;
+}
+/* REQUEST BOX */
+.container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+  padding:20px;
+}
+/* FORM BOX */
+.form-box, .list-box{
+  background:white;
+  width:350px;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+.form-box h3,
+.list-box h3{
+  color:#2563eb;
+  margin-bottom:15px;
+}
+input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+button{
+  width:100%;
+  padding:10px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+/* REQUEST ITEM */
+.request-item{
+  background:#f1f5ff;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  font-size:14px;
+}
+/* FOOTER */
+footer{
+  background:#2563eb;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<header>
+  <div class="logo">SkillX</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="browse-skills.html">Skills</a>
+    <a href="profile.html">Profile</a>
+    <a href="requests.html">Requests</a>
+  </nav>
+</header>
+<!-- TITLE -->
+<div class="title">
+  <h1>Skill Requests</h1>
+  <p>Request or view learning requests</p>
+</div>
+<div class="container">
+  <!-- REQUEST FORM -->
+  <div class="form-box">
+    <h3>Send Request</h3>
+    <input type="text" id="userName" placeholder="Your Name">
+    <input type="text" id="skillName" placeholder="Skill you want">
+    <button onclick="addRequest()">Send Request</button>
+  </div>
+  <!-- REQUEST LIST -->
+  <div class="list-box">
+    <h3>Incoming Requests</h3>
+    <div id="requestList">
+      <div class="request-item">Ali wants to learn JavaScript</div>
+      <div class="request-item">Sara wants to learn Graphic Design</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Skill Exchange Platform
+</footer>
+
+<script>
+
+/* ADD REQUEST */
+function addRequest(){
+
+  let name = document.getElementById("userName").value;
+  let skill = document.getElementById("skillName").value;
+
+  if(name === "" || skill === ""){
+    alert("Please fill all fields");
+    return;
+  }
+
+  let div = document.createElement("div");
+  div.className = "request-item";
+  div.innerText = name + " wants to learn " + skill;
+
+  document.getElementById("requestList").appendChild(div);
+
+  document.getElementById("userName").value = "";
+  document.getElementById("skillName").value = "";
+}
+
+</script>
+
+</body>
+</html>
