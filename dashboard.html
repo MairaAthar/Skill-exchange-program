@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | Skill Exchange</title>
+<style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+body{
+  background:#f4f6f9;
+  display:flex;
+}
+.sidebar{
+  width:220px;
+  height:100vh;
+  background:#2563eb;
+  color:white;
+  padding:20px;
+  position:fixed;
+}
+.sidebar h2{
+  margin-bottom:30px;
+}
+.sidebar a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin:15px 0;
+  font-size:14px;
+}
+.sidebar a:hover{
+  text-decoration:underline;
+}
+/* MAIN */
+.main{
+  margin-left:220px;
+  padding:20px;
+  width:100%;
+}
+/* TOP BAR */
+.topbar{
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.topbar h2{
+  color:#2563eb;
+}
+/* CARDS */
+.cards{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+.card{
+  background:white;
+  padding:20px;
+  flex:1;
+  min-width:180px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  text-align:center;
+}
+.card h3{
+  color:#2563eb;
+}
+/* CONTENT GRID */
+.grid{
+  display:flex;
+  gap:20px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+/* BOXES */
+.box{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  flex:1;
+  min-width:300px;
+}
+/* INPUT */
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+button{
+  width:100%;
+  padding:10px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+/* ACTIVITY */
+.activity{
+  background:#f1f5ff;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  font-size:14px;
+}
+/* NOTIFICATION */
+.notice{
+  background:#e6f0ff;
+  padding:10px;
+  margin:10px 0;
+  border-left:4px solid #2563eb;
+  border-radius:6px;
+  font-size:13px;
+}
+
+</style>
+</head>
+<body>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>SkillX</h2>
+  <a href="#">Dashboard</a>
+  <a href="home.html">Home</a>
+  <a href="BrowseSkills.html">Browse skills</a>
+  <a href="profileweb.html">Profile</a>
+  <a href="request.html">Requests</a>
+  <a href="dashboard.html">Logout</a>
+</div>
+<!-- MAIN -->
+<div class="main">
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <h2>Welcome, User 👋</h2>
+    <button onclick="showMsg()">Notification</button>
+  </div>
+  <!-- CARDS -->
+  <div class="cards">
+    <div class="card">
+      <h3 id="skillCount">3</h3>
+      <p>My Skills</p>
+    </div>
+    <div class="card">
+      <h3 id="requestCount">5</h3>
+      <p>Requests</p>
+    </div>
+    <div class="card">
+      <h3 id="connectCount">2</h3>
+      <p>Connections</p>
+    </div>
+  </div>
+  <!-- GRID -->
+  <div class="grid">
+    <!-- ADD SKILL -->
+    <div class="box">
+      <h3 style="color:#2563eb;">Add New Skill</h3>
+      <input type="text" id="newSkill" placeholder="Enter skill">
+      <button onclick="addSkill()">Add Skill</button>
+      <div id="skillList" style="margin-top:15px;"></div>
+    </div>
+    <!-- ACTIVITY -->
+    <div class="box">
+      <h3 style="color:#2563eb;">Recent Activity</h3>
+      <div id="activityBox">
+        <div class="activity">Ali requested JavaScript</div>
+        <div class="activity">You added HTML skill</div>
+      </div>
+    </div>
+    <!-- NOTIFICATIONS -->
+    <div class="box">
+      <h3 style="color:#2563eb;">Notifications</h3>
+      <div id="noticeBox">
+        <div class="notice">Welcome to Skill Exchange Platform!</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+/* ADD SKILL */
+function addSkill(){
+
+  let skill = document.getElementById("newSkill").value;
+  if(skill === ""){
+    alert("Enter a skill");
+    return;
+  }
+
+  let div = document.createElement("div");
+  div.className = "activity";
+  div.innerText = "You added " + skill;
+
+  document.getElementById("skillList").appendChild(div);
+  // increase counter
+  let count = document.getElementById("skillCount");
+  count.innerText = parseInt(count.innerText) + 1;
+
+  document.getElementById("newSkill").value = "";
+}
+
+/* NOTIFICATION */
+function showMsg(){
+
+  let box = document.getElementById("noticeBox");
+  let div = document.createElement("div");
+  div.className = "notice";
+  div.innerText = "New notification received!";
+
+  box.appendChild(div);
+}
+</script>
+
+</body>
+</html>
