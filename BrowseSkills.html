@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Skills | Skill Exchange</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+body{
+  background:#f4f6f9;
+}
+/* NAVBAR */
+header{
+  background:#2563eb;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+}
+.logo{
+  font-weight:bold;
+  font-size:20px;
+}
+nav a{
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+}
+nav a:hover{
+  text-decoration:underline;
+}
+/* TITLE */
+.title{
+  text-align:center;
+  padding:40px 20px;
+  color:#2563eb;
+}
+/* SEARCH BAR */
+.search-box{
+  text-align:center;
+  margin-bottom:20px;
+}
+.search-box input{
+  width:300px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+/* SKILLS GRID */
+.skills-container{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  padding:20px;
+}
+.skill-card{
+  background:white;
+  width:200px;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  cursor:pointer;
+  transition:0.3s;
+}
+.skill-card:hover{
+  transform:scale(1.05);
+}
+/* POPUP */
+.popup{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+  text-align:center;
+}
+.popup button{
+  margin-top:10px;
+  padding:8px 15px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+/* FOOTER */
+footer{
+  background:#2563eb;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR -->
+<header>
+  <div class="logo">SkillX</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Browse Skills</a>
+    <a href="#">Add Skill</a>
+    <a href="#">Login</a>
+  </nav>
+</header>
+<!-- TITLE -->
+<div class="title">
+  <h1>Browse Skills</h1>
+  <p>Find people and skills you want to learn</p>
+</div>
+<!-- SEARCH -->
+<div class="search-box">
+  <input type="text" id="search" placeholder="Search skills..." onkeyup="searchSkill()">
+</div>
+
+<!-- SKILLS -->
+<div class="skills-container">
+  <div class="skill-card">HTML</div>
+  <div class="skill-card">CSS</div>
+  <div class="skill-card">JavaScript</div>
+  <div class="skill-card">Python</div>
+  <div class="skill-card">Graphic Design</div>
+  <div class="skill-card">Video Editing</div>
+  <div class="skill-card">UI/UX Design</div>
+  <div class="skill-card">Digital Marketing</div>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <h3 id="popupText"></h3>
+  <button onclick="closePopup()">Close</button>
+</div>
+<!-- FOOTER -->
+<footer>
+  © 2026 Skill Exchange Platform
+</footer>
+
+<script>
+/* BASIC SEARCH FILTER */
+function searchSkill(){
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.getElementsByClassName("skill-card");
+  for(let i=0; i<cards.length; i++){
+    let text = cards[i].innerText.toLowerCase();
+    if(text.includes(input)){
+      cards[i].style.display = "block";
+    }
+
+    else{
+      cards[i].style.display = "none";
+    }
+
+  }
+}
+/* CLICK POPUP */
+
+let cards = document.getElementsByClassName("skill-card");
+for(let i=0; i<cards.length; i++){
+  cards[i].addEventListener("click", function(){
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popupText").innerText =
+      "You selected: " + this.innerText;
+  });
+}
+/* CLOSE POPUP */
+function closePopup(){
+  document.getElementById("popup").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
